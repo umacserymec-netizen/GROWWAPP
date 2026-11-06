@@ -62,6 +62,11 @@ _ENV_PREFIX_OVERRIDES = {
     "LLM_PROVIDER": ("llm", "provider"),
     "LLM_MODEL": ("llm", "model"),
     "APP_MODE": ("app", "mode"),
+    # Container hosts such as Vercel expose a read-only image filesystem.
+    # Point the writable stage directories at /tmp (or another mounted volume).
+    "GROWW_DATA_DIR": ("paths", "data_dir"),
+    "GROWW_CHROMA_DIR": ("vector_store", "persist_dir"),
+    "GROWW_TRACE_DIR": ("logging", "trace_dir"),
 }
 
 
