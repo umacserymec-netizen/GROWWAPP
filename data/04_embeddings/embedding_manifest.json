@@ -1,0 +1,63 @@
+{
+  "artifacts": {
+    "manifest": "data/04_embeddings/embedding_manifest.json",
+    "vectors": "data/04_embeddings/embeddings.npy"
+  },
+  "batch_size": 64,
+  "chunk_ids": [
+    "sha1:73c1dcdd1d87e0f1a5cf",
+    "sha1:617d369701778b549b6c",
+    "sha1:b6be5a1d8a854d357d3c",
+    "sha1:97db6fbd7997868dc456",
+    "sha1:5dbcdec7d3490c07ed9d",
+    "sha1:229243ffeccc347bfbba"
+  ],
+  "chunk_ids_sha256": "2d1cbf706673187d7c7153f66fc09a27abf066ce3d022fbcdb46763781f9b112",
+  "chunk_order": "row i == line i+1 of the input chunks.jsonl (file order preserved)",
+  "chunks_sha256": "fa44598df12b159de291812dfc907ceef31dc09ac6f9036f4d0681dbb3277be0",
+  "config_hash": "1f2d8ae624b8feb0488c8092a91edbd1ffa0a48e4f62acaee2b0c7c9b7dbaeb4",
+  "count": 6,
+  "counts": {
+    "by_chunk_type": {
+      "section_window": 6
+    },
+    "by_page_type": {
+      "help": 6
+    },
+    "schemes": [
+      "do-you-charge-for-processing-kyc",
+      "how-to-change-password-on-groww",
+      "what-are-account-opening-charges",
+      "when-will-the-stocks-be-delivered-to-my-demat-account-2",
+      "why-is-my-available-to-invest-not-the-same-as-my-available-to-withdraw-1"
+    ]
+  },
+  "created_at": "2026-11-06T05:36:43+00:00",
+  "device": "cpu",
+  "dim": 384,
+  "dtype": "float32",
+  "embedder_dim": 384,
+  "embedder_version": "embed_v1",
+  "index_fingerprint": "d90f6a1daf96d1d4b77a4b35ac4b4919f54b7dae30316b5654ca9032af78a1d5",
+  "input": {
+    "bytes": 5906,
+    "chunks": 6,
+    "path": "C:\\Users\\natur\\OneDrive\\Documents\\Default Project\\groww-help-faq-assistant\\data\\03_chunks\\chunks.jsonl"
+  },
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "normalized": true,
+  "revision": null,
+  "shape": [
+    6,
+    384
+  ],
+  "stage": "embed",
+  "text_template": "{scheme} | {field_label_or_section_title} | {text}",
+  "text_template_version": "embed_text_v1",
+  "vector_norms": {
+    "max": 1.0,
+    "mean": 1.0,
+    "min": 1.0
+  },
+  "vectors_sha256": "4b4d288945f96ed19ccb5e808597d2241188f99b8a81bfe278cff4252c421df8"
+}

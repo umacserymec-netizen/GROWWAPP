@@ -1,0 +1,83 @@
+# ---------------------------------------------------------------------------
+# Groww Help FAQ Assistant - single source of truth for tunables.
+# Secrets live in .env (see .env.example). Nothing in this file is secret.
+# Change values here, never in code.
+# ---------------------------------------------------------------------------
+
+app:
+  name: "Groww Help FAQ Assistant"
+  mode: "facts_only"          # facts_only | debug
+  max_input_chars: 300
+
+paths:
+  data_dir: "data"
+  sources_csv: "sources/sources.csv"
+  prompt_dir: "prompts"
+
+corpus:
+  allowed_domains:
+    - "groww.in"
+  user_agent: "groww-help-faq-demo/0.1 (educational prototype)"
+  request_delay_seconds: 1.5
+  timeout_seconds: 20
+  max_pages: 5
+  save_raw_html: true
+  respect_robots: true
+  min_clean_chars: 120
+
+chunking:
+  strategy: "structure_aware_hybrid"   # fact_atoms + section_windows
+  atom_max_chars: 320
+  window_chars: 700
+  window_overlap: 120
+  min_chunk_chars: 60
+
+embedding:
+  model: "sentence-transformers/all-MiniLM-L6-v2"
+  revision: null               # pin a HF commit/tag for a reproducible download
+  batch_size: 64
+  device: "cpu"                # cpu | cuda
+  normalize: true
+
+vector_store:
+  provider: "chroma"
+  persist_dir: "data/05_chroma"
+  collection: "groww_help_faq_v1"
+  distance: "cosine"
+  reset_on_rebuild: true
+  batch_size: 256
+
+retrieval:
+  top_k: 6
+  candidate_k: 24
+  min_score: 0.25
+  global_min_score: 0.55
+  mmr_lambda: 0.7
+  lexical_fallback: true
+
+llm:
+  provider: "groq"             # groq | gemini | openai | anthropic | mistral (LLM_PROVIDER overrides)
+  model: "qwen/qwen3.8-27b"    # LLM_MODEL overrides; confirm with scripts/smoke_llm.py --models
+  temperature: 0.0
+  max_tokens: 220
+  timeout_seconds: 30
+  max_retries: 1
+  fallback_provider: null      # e.g. "gemini"; must also have a key in .env
+
+answer:
+  max_sentences: 3             # hard product cap, validated at load
+  require_citation: true
+  show_last_updated: true
+
+pii:
+  enabled: true
+  redact_in_logs: true
+
+debug:
+  save_prompts: true
+  inspector: true
+  index_stale_days: 30
+
+logging:
+  trace_dir: "data/07_answers"
+  log_retrieval: true

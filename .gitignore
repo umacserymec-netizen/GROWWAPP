@@ -1,0 +1,31 @@
+# secrets
+.env
+!.env.example
+.streamlit/secrets.toml
+
+# generated pipeline artifacts (rebuild with: python -m ingest.run all)
+data/*
+!data/README.md
+
+# deployment: ship the small runtime artifacts so Streamlit Cloud can answer
+# without scraping/building on every cold start (raw HTML and logs stay local)
+!data/03_chunks/
+!data/03_chunks/chunks.jsonl
+!data/03_chunks/chunk_stats.json
+!data/04_embeddings/
+!data/04_embeddings/embeddings.npy
+!data/04_embeddings/embedding_manifest.json
+!data/05_chroma/
+!data/05_chroma/**
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# demo output (video can be re-recorded; script is committed)
+demo/*.mp4

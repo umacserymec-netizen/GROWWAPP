@@ -1,0 +1,23 @@
+{
+  "batch_size": 256,
+  "chunk_count": 6,
+  "chunks_sha256": "fa44598df12b159de291812dfc907ceef31dc09ac6f9036f4d0681dbb3277be0",
+  "collection": "groww_help_faq_v1",
+  "config_hash": "1f2d8ae624b8feb0488c8092a91edbd1ffa0a48e4f62acaee2b0c7c9b7dbaeb4",
+  "corpus_hash": "501dc2905643ebe731fa82e7fa1d4ed1b6be756b9e9f27ecc5abcb608c7764bd",
+  "created_at": "2026-11-06T05:36:45+00:00",
+  "distance": "cosine",
+  "embedder_version": "embed_v1",
+  "embedding_dim": 384,
+  "embedding_manifest_hash": "bc1939958228c62c2c0f759eb92d350d1d60d79010037f57960654adf78021eb",
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_revision": null,
+  "index_fingerprint": "d90f6a1daf96d1d4b77a4b35ac4b4919f54b7dae30316b5654ca9032af78a1d5",
+  "indexer_version": "index_v1",
+  "newest_fetched_at": "2026-11-06",
+  "oldest_fetched_at": "2026-11-06",
+  "reset_on_rebuild": true,
+  "schema_version": "index_v1",
+  "text_template_version": "embed_text_v1",
+  "vectors_sha256": "4b4d288945f96ed19ccb5e808597d2241188f99b8a81bfe278cff4252c421df8"
+}

@@ -1,0 +1,108 @@
+{
+  "chars": {
+    "all": {
+      "count": 6,
+      "max": 643,
+      "mean": 433.2,
+      "median": 417.0,
+      "min": 240,
+      "p90": 643
+    },
+    "fact_atom": {
+      "count": 0,
+      "max": null,
+      "mean": null,
+      "median": null,
+      "min": null,
+      "p90": null
+    },
+    "section_window": {
+      "count": 6,
+      "max": 643,
+      "mean": 433.2,
+      "median": 417.0,
+      "min": 240,
+      "p90": 643
+    }
+  },
+  "chunker_version": "chunk_v1",
+  "config_hash": "1f2d8ae624b8feb0488c8092a91edbd1ffa0a48e4f62acaee2b0c7c9b7dbaeb4",
+  "counts": {
+    "fact_atom": 0,
+    "section_window": 6,
+    "total": 6
+  },
+  "coverage": {
+    "do-you-charge-for-processing-kyc": {
+      "atoms": 0,
+      "fetched_at": "2026-11-06",
+      "fields": {},
+      "page_type": "help",
+      "scheme": "Do you charge for processing KYC?",
+      "source_url": "https://groww.in/help/my-account/ma-kyc/do-you-charge-for-processing-kyc",
+      "windows": 1
+    },
+    "how-to-change-password-on-groww": {
+      "atoms": 0,
+      "fetched_at": "2026-11-06",
+      "fields": {},
+      "page_type": "help",
+      "scheme": "How to change password on Groww?",
+      "source_url": "https://groww.in/help/my-account/ma-account-details/how-to-change-password-on-groww",
+      "windows": 1
+    },
+    "what-are-account-opening-charges": {
+      "atoms": 0,
+      "fetched_at": "2026-11-06",
+      "fields": {},
+      "page_type": "help",
+      "scheme": "What are account opening charges?",
+      "source_url": "https://groww.in/help/stocks/sx-pricing/what-are-account-opening-charges",
+      "windows": 1
+    },
+    "when-will-the-stocks-be-delivered-to-my-demat-account-2": {
+      "atoms": 0,
+      "fetched_at": "2026-11-06",
+      "fields": {},
+      "page_type": "help",
+      "scheme": "When will the stocks be delivered to my demat account?",
+      "source_url": "https://groww.in/help/stocks/order/when-will-the-stocks-be-delivered-to-my-demat-account-2",
+      "windows": 1
+    },
+    "why-is-my-available-to-invest-not-the-same-as-my-available-to-withdraw-1": {
+      "atoms": 0,
+      "fetched_at": "2026-11-06",
+      "fields": {},
+      "page_type": "help",
+      "scheme": "Why is my 'Available to Invest' not the same as my 'Available to Withdraw'?",
+      "source_url": "https://groww.in/help/payments/payments/why-is-my-available-to-invest-not-the-same-as-my-available-to-withdraw-1",
+      "windows": 2
+    }
+  },
+  "duplicates": 0,
+  "generated_at": "2026-11-06T05:36:21+00:00",
+  "input": {
+    "chars": 2393,
+    "documents": 5,
+    "path": "C:\\Users\\natur\\OneDrive\\Documents\\Default Project\\groww-help-faq-assistant\\data\\02_clean\\documents.jsonl",
+    "sections": 5
+  },
+  "missing_required": [],
+  "oversized": [],
+  "rationale": "structure_aware_hybrid: fact_atom chunks keep one label/value fact with its source, because fixed-size windows split 'Exit load' from its value; section_window chunks add bounded, title-prefixed context for prose and ambiguous questions. Atoms are exempt from min_chunk_chars so terse facts ('Exit load: Nil') survive; the floor applies to windows only.",
+  "required": {
+    "do-you-charge-for-processing-kyc": [],
+    "how-to-change-password-on-groww": [],
+    "what-are-account-opening-charges": [],
+    "when-will-the-stocks-be-delivered-to-my-demat-account-2": [],
+    "why-is-my-available-to-invest-not-the-same-as-my-available-to-withdraw-1": []
+  },
+  "settings": {
+    "atom_max_chars": 320,
+    "min_chunk_chars": 60,
+    "window_chars": 700,
+    "window_overlap": 120
+  },
+  "skipped_sections": [],
+  "strategy": "structure_aware_hybrid"
+}

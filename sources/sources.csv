@@ -1,0 +1,6 @@
+id,role,scheme,url,page_type,priority,http_status,sha256,fetched_at,notes
+1,help_topic,Do you charge for processing KYC?,https://groww.in/help/my-account/ma-kyc/do-you-charge-for-processing-kyc,help,1,200,a25bf080f5498c085084b90053357906ac0144b96852de28fb33b2a76fb0c950,2026-11-06,
+2,help_topic,How to change password on Groww?,https://groww.in/help/my-account/ma-account-details/how-to-change-password-on-groww,help,2,200,3960cc9b37594ccb4e88e217d86e21481e4d07101c912f75908ce63f81c19c4e,2026-11-06,
+3,help_topic,What are account opening charges?,https://groww.in/help/stocks/sx-pricing/what-are-account-opening-charges,help,3,200,bab87a1fa751fdbc06316514145c7dec5025290e782f0ff55fba2dbda79e83d3,2026-11-06,
+4,help_topic,When will the stocks be delivered to my demat account?,https://groww.in/help/stocks/order/when-will-the-stocks-be-delivered-to-my-demat-account-2,help,4,200,ef98b77a2add3fd9a9e434762c426289e954cbebdf37de7478de55b451c13f1e,2026-11-06,
+5,help_topic,Why is my 'Available to Invest' not the same as my 'Available to Withdraw'?,https://groww.in/help/payments/payments/why-is-my-available-to-invest-not-the-same-as-my-available-to-withdraw-1,help,5,200,e54491f168be4ce449de85389c176b6ae4cd175bf9934a55cedb53700ed17a11,2026-11-06,
