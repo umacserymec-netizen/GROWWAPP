@@ -1,9 +1,9 @@
 # Vercel container runtime entrypoint.
 #
 # Vercel builds this file, stores the image in its registry, and routes HTTP
-# traffic to the Streamlit server on $PORT. Keeping the application in a
-# container avoids Vercel's FastAPI auto-detection and lets Streamlit keep its
-# own long-running server.
+# traffic to the Streamlit server on $PORT. Naming it Dockerfile.vercel makes
+# the Container preset win over Vercel's FastAPI auto-detection, and
+# vercel.json pins the framework as well.
 FROM python:3.12-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -12,7 +12,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=1 \
     STREAMLIT_SERVER_HEADLESS=true \
     STREAMLIT_BROWSER_GATHER_USAGE_STATS=false \
-    HF_HOME=/app/.cache/huggingface
+    HF_HOME=/opt/hf-cache
 
 WORKDIR /app
 
@@ -27,14 +27,13 @@ RUN python -m pip install --upgrade pip \
 
 # Bake the MiniLM embedding model into the image so a cold start does not
 # depend on a Hugging Face download.
-RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')" \
-    && chmod -R a+rX /app/.cache
+RUN python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')"
 
 COPY . .
 
 ENV PORT=80
 EXPOSE 80
 
-# Vercel's filesystem is read-only except /tmp. Copy the committed index to a
-# writable scratch directory on first boot and point the pipeline at it.
-CMD ["sh", "-c", "if [ ! -d /tmp/groww-data ]; then cp -a /app/data /tmp/groww-data; fi; export GROWW_DATA_DIR=/tmp/groww-data; export GROWW_CHROMA_DIR=/tmp/groww-data/05_chroma; export GROWW_TRACE_DIR=/tmp/groww-data/07_answers; exec streamlit run app/streamlit_app.py --server.address 0.0.0.0 --server.port \"${PORT:-80}\" --server.headless true --server.enableCORS false --server.enableXsrfProtection false --server.fileWatcherType none"]
+# Vercel's image filesystem is read-only. Copy the committed index and the
+# model cache to /tmp on first boot, then point the pipeline at those copies.
+CMD ["sh", "-c", "if [ ! -d /tmp/groww-data ]; then cp -a /app/data /tmp/groww-data; fi; if [ ! -d /tmp/hf-cache ]; then cp -a /opt/hf-cache /tmp/hf-cache; fi; export GROWW_DATA_DIR=/tmp/groww-data; export GROWW_CHROMA_DIR=/tmp/groww-data/05_chroma; export GROWW_TRACE_DIR=/tmp/groww-data/07_answers; export HF_HOME=/tmp/hf-cache; export HF_HUB_OFFLINE=1; export TRANSFORMERS_OFFLINE=1; exec streamlit run app/streamlit_app.py --server.address 0.0.0.0 --server.port \"${PORT:-80}\" --server.headless true --server.enableCORS false --server.enableXsrfProtection false --server.fileWatcherType none"]
