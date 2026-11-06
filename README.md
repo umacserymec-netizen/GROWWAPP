@@ -54,7 +54,8 @@ guard PII -> resolve topic -> retrieve -> score gate -> prompt -> LLM
 ```
 
 Every retrieval and answer is persisted under `data/06_retrieval/` and
-`data/07_answers/` for the in-app inspector.
+`data/07_answers/` for developer inspection. The inspector is not rendered in
+the visitor UI.
 
 ## Setup
 
@@ -104,7 +105,9 @@ or:
 .\run.ps1
 ```
 
-Open <http://localhost:8501>. The sidebar has the scope, sources, and inspector.
+Open the local Streamlit URL printed in the terminal. The sidebar has the scope
+and sources notes. Stage artifacts remain on disk for development and are not
+shown to visitors.
 
 Example questions:
 
@@ -131,14 +134,14 @@ Expected refusal paths:
 ## Layout
 
 ```
-app/        Streamlit UI, source cards, inspector, optional FastAPI
+app/        Streamlit UI, source cards, developer-only inspector, optional FastAPI
 config/     config.yaml + typed settings
 core/       guard, intent, resolve, retrieval, prompt, validate, answer
 ingest/     fetch, parse, load, chunk, embed, index
 prompts/    versioned system prompt
 sources/    sources.csv + SOURCES.md scope record
 tests/      focused parse, resolve, intent, chunk, fallback, validate tests
-data/       generated artifacts (gitignored)
+data/       generated artifacts (raw pages and traces stay local; the small runtime index is committed)
 ```
 
 ## Limitations
