@@ -134,7 +134,8 @@ Expected refusal paths:
 ## Layout
 
 ```
-app/        Streamlit UI, source cards, developer-only inspector, optional FastAPI
+app/        Streamlit UI, source cards, developer-only inspector
+scripts/    optional local FastAPI surface (requirements-api.txt) + offline tools
 config/     config.yaml + typed settings
 core/       guard, intent, resolve, retrieval, prompt, validate, answer
 ingest/     fetch, parse, load, chunk, embed, index

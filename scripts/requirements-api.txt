@@ -1,0 +1,5 @@
+# Optional local FastAPI surface (scripts/api.py).
+# Install alongside the runtime requirements:
+#   pip install -r requirements.txt -r scripts/requirements-api.txt
+fastapi==0.162.0
+uvicorn[standard]==0.54.0

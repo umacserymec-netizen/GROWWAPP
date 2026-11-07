@@ -152,7 +152,7 @@ def trace(qid: str) -> dict[str, Any]:
     }
 
 
-if __name__ == "__main__":  # ``python -m app.api`` → :8000 (ARCHITECTURE §10.2)
+if __name__ == "__main__":  # ``python -m scripts.api`` → :8000 (ARCHITECTURE §10.2)
     import uvicorn
 
-    uvicorn.run("app.api:app", host="127.0.0.1", port=8000, reload=False)
+    uvicorn.run("scripts.api:app", host="127.0.0.1", port=8000, reload=False)

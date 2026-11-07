@@ -29,3 +29,6 @@ venv/
 
 # demo output (video can be re-recorded; script is committed)
 demo/*.mp4
+
+.vercel
+*.log

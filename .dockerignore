@@ -1,5 +1,6 @@
 .git
 .gitignore
+.vercel
 .venv
 venv
 __pycache__
